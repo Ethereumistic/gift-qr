@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import AutoPlayAudio from './AutoPlayAudio';
 
 export const RevealedCard: React.FC = () => {
   return (
@@ -12,18 +13,18 @@ export const RevealedCard: React.FC = () => {
         stiffness: 260,
         damping: 20
       }}
+      className="flex flex-col items-center"
     >
-<motion.div
-  className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-gradient-to-bl from-pink-400 to-pink-700"
-  animate={{ rotate: [0, -1, 1, -1, 1, 0] }}
-  transition={{
-    duration: 5, // Keep the wobble animation at the same speed
-    ease: "easeInOut",
-    repeat: Infinity, // Make it repeat infinitely
-    repeatType: "reverse" // Optional: Creates a smoother reverse effect
-  }}
->
-
+      <motion.div
+        className="rounded-[22px] max-w-sm p-4 sm:p-10 bg-gradient-to-bl from-pink-400 to-pink-700"
+        animate={{ rotate: [0, -1, 1, -1, 1, 0] }}
+        transition={{
+          duration: 5,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "reverse"
+        }}
+      >
         <Image
           src="/run.png"
           alt="jordans"
@@ -39,6 +40,7 @@ export const RevealedCard: React.FC = () => {
           Усъвършенстваната пътека предлага устойчивост, съчетана със съвременен стил, за да подобри Вашето тренировъчно изживяване.
         </p>
       </motion.div>
+      <AutoPlayAudio isRevealed={true} />
     </motion.div>
   );
 };
