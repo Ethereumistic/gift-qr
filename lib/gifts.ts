@@ -40,6 +40,6 @@ export const giftRegistry: Record<string, GiftConfig> = {
             { label: 'RAM', value: '32 GB DDR5' },
             { label: 'SSD', value: '2 TB' },
         ],
-        songPath: '/audio/koko.m4a',
+        songPath: '/audio/koko.mp3',
     },
 };
