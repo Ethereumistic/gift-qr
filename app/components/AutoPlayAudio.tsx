@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import { Theme } from "@/lib/gifts";
+import { clsx } from "clsx";
 
 interface AutoPlayAudioProps {
   isRevealed: boolean;
+  songPath: string;
+  theme: Theme;
 }
 
-const AutoPlayAudio: React.FC<AutoPlayAudioProps> = ({ isRevealed }) => {
+const AutoPlayAudio: React.FC<AutoPlayAudioProps> = ({ isRevealed, songPath, theme }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isMuted, setIsMuted] = useState(true);
 
@@ -38,18 +42,23 @@ const AutoPlayAudio: React.FC<AutoPlayAudioProps> = ({ isRevealed }) => {
     }
   };
 
+  const buttonClass = clsx(
+    "mt-4 p-2 rounded-full transition-colors",
+    theme === 'pink' ? "bg-pink-300 text-pink-600" : "bg-blue-300 text-blue-600"
+  );
+
   return (
     <>
-      <audio ref={audioRef} src="/audio/song.mp3" loop />
+      <audio ref={audioRef} src={songPath} loop />
       {isRevealed && (
         <button
           onClick={toggleMute}
-          className="mt-4 p-2 rounded-full bg-pink-300 transition-colors"
+          className={buttonClass}
         >
           {isMuted ? (
-            <VolumeX className="w-6 h-6 text-pink-600" />
+            <VolumeX className="w-6 h-6 " />
           ) : (
-            <Volume2 className="w-6 h-6 text-pink-600" />
+            <Volume2 className="w-6 h-6 " />
           )}
         </button>
       )}
