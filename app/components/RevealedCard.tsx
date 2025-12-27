@@ -12,7 +12,9 @@ interface RevealedCardProps {
 export const RevealedCard: React.FC<RevealedCardProps> = ({ config }) => {
   const gradientClass = clsx(
     "rounded-[22px] max-w-sm p-4 sm:p-10 bg-gradient-to-bl",
-    config.theme === 'pink' ? "from-pink-400 to-pink-700" : "from-blue-400 to-blue-700"
+    config.theme === 'pink' ? "from-pink-400 to-pink-700" :
+      config.theme === 'blue' ? "from-blue-400 to-blue-700" :
+        "from-red-400 to-red-700"
   );
 
   return (

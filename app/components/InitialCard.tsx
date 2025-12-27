@@ -13,7 +13,10 @@ interface InitialCardProps {
 export const InitialCard: React.FC<InitialCardProps> = ({ onReveal, isSpinning, config }) => {
   const gradientClass = clsx(
     "p-4 rounded-3xl bg-gradient-to-bl",
-    config.theme === 'pink' ? "from-pink-200 to-pink-400" : "from-blue-200 to-blue-400"
+    config.theme === 'pink' ? "from-pink-200 to-pink-400" :
+      config.theme === 'blue' ? "from-blue-200 to-blue-400" :
+        config.theme === 'red' ? "from-red-200 to-red-400" :
+          "from-pink-200 to-pink-400"
   );
 
   return (

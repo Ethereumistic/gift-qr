@@ -16,7 +16,10 @@ export default function Home() {
             <div className={clsx(
               "w-40 h-40 rounded-2xl flex flex-col items-center justify-center transition-transform hover:scale-105",
               "bg-gradient-to-br shadow-lg",
-              gift.theme === 'pink' ? "from-pink-400 to-pink-600 shadow-pink-500/20" : "from-blue-400 to-blue-600 shadow-blue-500/20"
+              gift.theme === 'pink' ? "from-pink-400 to-pink-600 shadow-pink-500/20" :
+                gift.theme === 'blue' ? "from-blue-400 to-blue-600 shadow-blue-500/20" :
+                  gift.theme === 'red' ? "from-red-400 to-red-600 shadow-red-500/20" :
+                    "from-pink-400 to-pink-600 shadow-pink-500/20"
             )}>
               <div className="text-4xl mb-2">🎁</div>
               <span className="text-white font-bold text-lg">{gift.name}</span>

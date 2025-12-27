@@ -44,7 +44,9 @@ const AutoPlayAudio: React.FC<AutoPlayAudioProps> = ({ isRevealed, songPath, the
 
   const buttonClass = clsx(
     "mt-4 p-2 rounded-full transition-colors",
-    theme === 'pink' ? "bg-pink-300 text-pink-600" : "bg-blue-300 text-blue-600"
+    theme === 'pink' ? "bg-pink-300 text-pink-600" :
+      theme === 'blue' ? "bg-blue-300 text-blue-600" :
+        "bg-red-300 text-red-600"
   );
 
   return (
